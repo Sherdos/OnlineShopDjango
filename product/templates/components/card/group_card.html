@@ -1,0 +1,12 @@
+<section class="section_card">
+    <h2>Наши Продукты</h2>
+    <div class="container d-flex cards ">
+
+        {% for card in cards %}
+            
+            {% include 'components/card/card.html' %}
+        
+        {% endfor %}
+    </div>
+        
+</section>
