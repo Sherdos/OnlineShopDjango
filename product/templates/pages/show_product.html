@@ -1,0 +1,111 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+            
+      <div class="title-articul border-bottom border-dark">
+        <h1 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">{{card.title}}</h1>
+        <p style="font-size: x-small; font-family: 'Courier New', Courier, monospace;">{{card.id}}</p>
+      </div>
+      <div class="content d-flex flex-row bd-highlight mb-3">
+          
+          <div class="image p-2 bd-highlight">
+            <img style="width: 100%;" src="{{card.product_media.first.image.url}} " alt="">
+            
+            {% for image in card.product_media.all %}
+            <img style="width: 40px; height: 40px; margin-left:10px" src="{{image.image.url}}" alt="">
+            {% endfor %}
+              
+          </div>
+          <div class="conteiner d-grid gap-3">
+
+            <div class="v  p-2 bg-light border-bottom">
+                <h4>{{card.price}} сом</h4>
+            </div>
+            <div class="description  p-2 bg-light border-bottom">
+                <p>{{card.description}}</p></div>
+                     <div class="categoria p-2 bg-light border-bottom">Категория: <span>Верхняя одежда</span></div>
+                    
+                    <div class="option p-2 bg-light border-bottom"> <p>Размер:</p>
+                      <select class="form-select d-inline-flex p-2 bd-highlight" aria-label="Default select example">
+                      
+                      <option selected>Выберите размер</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <button type="button" class=" my-btn btn btn-outline-success">КОРЗИНУ</button>
+                    <button type="button" class=" my-btn btn btn-outline-primary">Купить</button></div>
+            <div class="support p-2 bg-light border-bottom">КАК СДЕЛАТЬ ЗАКАЗ?
+
+                <p>Если Вы хотите приобрести только 1 товар, то Вы можете воспользоваться кнопкой «Купить». Вам перезвонит оператор и уточнит все детали доставки: адрес и желаемое время доставки. Если Вы хотите заказать несколько товаров, то выберите товар и нажмите «В корзину»</p>
+                
+                <p>ПОЛОЖИТЕ ТОВАР В КОРЗИНУ</p>
+                
+                <p>
+                    Как только в корзине будут все желаемые товары, нажмите на кнопку «Оформить заказ»
+                    
+                </p>
+                <p>ВЫБЕРИТЕ СПОСОБ ОПЛАТЫ</p>
+                
+                <p>
+                    Возможность оплатить товар наличными при получении, банковской картой и онлайн через электронную платежную систему.
+                    
+                </p>
+                
+                <p>ЕСЛИ ВЫ ЕЩЁ ДУМАЕТЕ</p>
+                
+                           
+                <p>Бесплатная доставка по городу Бишкек</p>
+                <p>Бесплатная примерка и покупка только подошедшей модели</p>
+                <p>Не забудьте зарегистрироваться в Croco Club и получить кэшбэк уже на первую покупку!</p></div>
+          </div>
+          
+      </div>
+      <p class="between-card ">Похожие товары</p>
+      <div class="between ">
+        <div class="card fw-bold" style="width: 13rem;">
+          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
+          <div class="card-body ">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Куртка Gant</li>
+            <li class="list-group-item">23 990 сом</li>
+            <li class="list-group-item">7006271 433</li>
+          </ul>
+        
+        </div>
+        <div class="card fw-bold" style="width: 13rem;">
+          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
+          <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Куртка Gant</li>
+            <li class="list-group-item">23 990 сом</li>
+            <li class="list-group-item">7006271 433</li>
+          </ul>
+        
+        </div>
+        <div class="card fw-bold" style="width: 13rem;">
+          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
+          <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Куртка Gant</li>
+            <li class="list-group-item">23 990 сом</li>
+            <li class="list-group-item">7006271 433</li>
+          </ul>
+        
+        </div>
+        <div class="card fw-bold" style="width: 13rem;">
+          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
+          <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Куртка Gant</li>
+            <li class="list-group-item">23 990 сом</li>
+            <li class="list-group-item">7006271 433</li>
+          </ul>
+        
+        </div>
+      </div>
+{% endblock content %}
+      
+
+     

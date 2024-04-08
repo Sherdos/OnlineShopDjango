@@ -1,0 +1,50 @@
+.content{
+    margin: 5%;
+    
+}
+
+.title-articul{
+    margin-top: 50px;
+    margin-left: 5%;
+}
+
+
+.image {
+    width: 30%;
+    height: 300px;
+}
+.v{
+    display: inline-block;
+}
+
+.description{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.d-grid {
+
+    display: inline ;
+}
+
+.support{
+    font-style: normal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 14px;
+    color: rgb(88, 88, 88);
+}
+span{
+    color: blue;
+}
+span > .f{
+    margin-left: 50%;
+}
+
+.between-card{
+    display: flex;
+    justify-content: space-around
+}
+
+.my-btn{
+    display: inline-block;
+    margin: 20px;
+}

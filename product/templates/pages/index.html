@@ -1,7 +1,180 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-    <h1 class="title">Главная</h1>
-    {% include 'components/card/group_card.html' %}
-{% endblock content %}
+<div id="container">
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deal</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 70% off!</p>
+        <div class="share">
+            <span>Share</span>
+            <nav>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-google"></i></a>
+                <a href=""><i class="fa-brands fa-github"></i></a>
+            </nav>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h1>Featured Products</h1>
+        <p>Timeless Elegance Heritage – Futuristic Smart Clothes</p>
+        {% include 'components/card/group_card.html' %}
+    </section>
+
+
+    <section id="feature">
+        <div class="fe-box">
+            <img src="{% static 'image/features/f1.jpg' %}" alt="" width="100%">
+            <h6>Worldwide shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'image/features/f2.jpg'  %}" alt="" width="100%">
+            <h6>Positive Reviews</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'image/features/f3.jpg'  %}" alt="" width="100%">
+            <h6>Affordability</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'image/features/f4.jpg'  %}" alt="" width="100%">
+            <h6>helo</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'image/features/f5.jpg'  %}" alt="" width="100%">
+            <h6>Design and Style</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'image/features/f6.jpg' %}" alt="" width="100%">
+            <h6>24/7 Support</h6>
+        </div>
+    </section>
+
     
+
+
+    <section id="banner">
+        <div class="text-wrapper">
+            <h4>Stylish Furtive Smart Watches</h4>
+            <h2>Up to <span>70% off</span> - All Clothes</h2>
+            <button>Shop Now</button>
+        </div>
+    </section>
+
+    <section id="sm-banner">
+        <div class="banner-box">
+            <h4>crazy-deals</h4>
+            <h2>buy 3 get 1 free</h2>
+            <span>The best modern smartwatches is on sale at our `Name`</span>
+            <button>Learn More</button>
+        </div>
+        <div class="banner-box banner-box-2">
+            <h4>crazy-deals</h4>
+            <h2>Upcoming models</h2>
+            <span>The best modern smartwatches is on sale at `Name`</span>
+            <button>Collection</button>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h1>Brand-New Products</h1>
+        <p>Elegance Heritage – Futuristic Smart Clothes</p>
+        <div class="card-container">
+            <div class="card">
+                <img src="{% static 'image/icons/shopping-cart.png' %}" alt="" width="100%">
+                <div class="desc">
+                    <span>Apple</span>
+                    <h5>Lorem, ipsum.</h5>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$209,00</h4>
+                </div>
+                <div class="icon-container">
+                    <img width="18px" class="cart-icon" src="{% static 'image/icons/shopping-cart.png' %}" alt="Icon">
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'image/icons/shopping-cart.png' %}" alt="" width="100%">
+                <div class="desc">
+                    <span>Apple</span>
+                    <h5>Lorem, ipsum.</h5>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$209,00</h4>
+                </div>
+                <div class="icon-container">
+                    <img width="18px" class="cart-icon" src="{% static 'image/icons/shopping-cart.png' %}" alt="Icon">
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="{% static 'image/icons/shopping-cart.png' %}" alt="" width="100%">
+                <div class="desc">
+                    <span>Apple</span>
+                    <h5>Lorem, ipsum.</h5>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$209,00</h4>
+                </div>
+                <div class="icon-container">
+                    <img width="18px" class="cart-icon" src="{% static 'image/icons/shopping-cart.png' %}" alt="Icon">
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'image/icons/shopping-cart.png' %}" alt="" width="100%">
+                <div class="desc">
+                    <span>Apple</span>
+                    <h5>Lorem, ipsum.</h5>
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$209,00</h4>
+                </div>
+                <div class="icon-container">
+                    <img width="18px" class="cart-icon" src="{% static 'image/icons/shopping-cart.png' %}" alt="Icon">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="banner-3">
+        <div class="banner-box">
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection <span>-20%</span> Off</h3>
+        </div>
+        <div class="banner-box">
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection <span>-20%</span> Off</h3>
+        </div>
+        <div class="banner-box">
+            <h2>SEASONAL SALE</h2>
+            <h3>Winter Collection <span>-20%</span> Off</h3>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}

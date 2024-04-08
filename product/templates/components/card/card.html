@@ -1,16 +1,19 @@
-<div class="card" style="width: 18rem;">
-    <img src="{{card.image.url}}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{card.title}}</h5>
-      <p class="card-text">{{card.description}}</p>
+{% load static %}
+  <div class="card">
+    <img src="{{card.product_media.first.image.url}}" alt="" width="100%">
+    <div class="desc">
+        <span>{{card.description}}</span>
+        <h5></h5>
+        <div class="star-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <h4>{{card.price}} сом</h4>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Цена: {{card.price}} сом</li>
-      <li class="list-group-item">A second item</li>
-      <li class="list-group-item">A third item</li>
-    </ul>
-    <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+    <div class="icon-container">
+        <img width="18px" class="cart-icon" src="{% static 'image/icons/shopping-cart.png' %}" alt="Icon">
     </div>
-  </div>
+</div>
