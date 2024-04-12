@@ -12,3 +12,14 @@ class ProductAdmin(admin.ModelAdmin):
         MediaInline
     ]
     
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    '''Admin View for Category'''
+    list_display = ('title',)
+    prepopulated_fields = {'slug':('title',)}
+
+@admin.register(models.Size)
+class SizeAdmin(admin.ModelAdmin):
+    '''Admin View for Category'''
+    list_display = ('title',)
+    prepopulated_fields = {'slug':('title',)}

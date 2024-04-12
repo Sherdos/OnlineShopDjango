@@ -1,0 +1,46 @@
+<div class="content d-flex flex-row bd-highlight mb-3">
+          
+    <div style="width: 500px; padding: 0 50px;" class="image bd-highlight">
+      <img style="width: 100%;" src="{{card.product_media.first.image.url}} " alt="">
+      
+      {% for image in card.product_media.all %}
+      <img style="width: 40px; height: 40px; margin-left:10px; margin-top: 10px;" src="{{image.image.url}}" alt="">
+      {% endfor %}
+        
+    </div>
+    <div class="conteiner d-grid gap-3">
+
+      <div class="v  p-2 bg-light border-bottom">
+          <h4>{{card.price}} сом</h4>
+      </div>
+      <div class="description  p-2 bg-light border-bottom">
+          <p>{{card.description}}</p></div>
+               <div class="categoria p-2 bg-light border-bottom">Категория: <span>{{card.categories.first}}</span></div>
+              
+            {% include 'components/order/select_size.html' %}
+      <div class="support p-2 bg-light border-bottom">КАК СДЕЛАТЬ ЗАКАЗ?
+
+          <p>Если Вы хотите приобрести только 1 товар, то Вы можете воспользоваться кнопкой «Купить». Вам перезвонит оператор и уточнит все детали доставки: адрес и желаемое время доставки. Если Вы хотите заказать несколько товаров, то выберите товар и нажмите «В корзину»</p>
+          
+          <p>ПОЛОЖИТЕ ТОВАР В КОРЗИНУ</p>
+          
+          <p>
+              Как только в корзине будут все желаемые товары, нажмите на кнопку «Оформить заказ»
+              
+          </p>
+          <p>ВЫБЕРИТЕ СПОСОБ ОПЛАТЫ</p>
+          
+          <p>
+              Возможность оплатить товар наличными при получении, банковской картой и онлайн через электронную платежную систему.
+              
+          </p>
+          
+          <p>ЕСЛИ ВЫ ЕЩЁ ДУМАЕТЕ</p>
+          
+                     
+          <p>Бесплатная доставка по городу Бишкек</p>
+          <p>Бесплатная примерка и покупка только подошедшей модели</p>
+          <p>Не забудьте зарегистрироваться в Croco Club и получить кэшбэк уже на первую покупку!</p></div>
+    </div>
+    
+</div>

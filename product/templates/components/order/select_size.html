@@ -1,0 +1,13 @@
+<form method="post" class="option p-2 bg-light border-bottom"> <p>Размер:</p>
+    <select class="form-select d-inline-flex p-2 bd-highlight" aria-label="Default select example">
+    
+    <option selected>Выберите размер</option>
+    
+    {% for size in card.sizes.all %}
+    <option value="{{size.id}}">{{size.title}}</option>
+        {% empty %}
+        <option value="1">--------</option>
+    {% endfor %}
+  </select>
+  <button type="button" class=" my-btn btn btn-outline-success">КОРЗИНУ</button>
+  <button type="button" class=" my-btn btn btn-outline-primary">Купить</button></form>
