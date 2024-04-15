@@ -11,6 +11,9 @@ class Product(models.Model):
     categories = models.ManyToManyField('product.Category', verbose_name='категории')
     # TODO: Define fields here
     sizes =models.ManyToManyField('product.Size', verbose_name='размеры')
+    rating = models.IntegerField(verbose_name='рейтинг', default=0)
+    
+    
     class Meta:
         """Meta definition for Product."""
 

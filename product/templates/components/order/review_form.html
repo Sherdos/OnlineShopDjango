@@ -1,0 +1,5 @@
+<form method="post" class="option p-2 bg-light border-bottom"> <p>Оценка</p>
+    {% csrf_token %}
+    {{form_review}}
+  <button type="submit" class=" my-btn btn btn-outline-success">отправить</button>
+</form>
