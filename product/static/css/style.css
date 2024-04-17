@@ -428,3 +428,10 @@ p {
 #banner-3 h3 span {
     color: #ff0000;
 }
+
+.auth-form {
+    width: 500px; 
+    margin: auto; 
+    padding: 10px;
+    border: 1px solid gray;
+}

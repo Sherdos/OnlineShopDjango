@@ -1,20 +1,14 @@
 from django import forms
-choice = (
- ('1','1'),
- ('2','2'),
- ('3','3'),
- ('4','4'),
- ('5','5'),
- ('6','6'),
- ('7','7'),
- ('8','8'),
- ('9','9'),
- ('10','10'),
-)
-class Review(forms.Form):
+from product.models import choices_review
+from product.models import Review
+
+class Review(forms.ModelForm):
     """Review definition."""
-    review = forms.ChoiceField(choices=choice, widget=forms.Select(attrs={'class':'form-select d-inline-flex p-2 bd-highlight', }))
-    
+    assesment = forms.ChoiceField(choices=choices_review, widget=forms.Select(attrs={'class':'form-select d-inline-flex p-2 bd-highlight', }))
+    class Meta:
+        model = Review
+        fields = ['text', 'assesment']
     
     # TODO: Define form fields here
+
 
