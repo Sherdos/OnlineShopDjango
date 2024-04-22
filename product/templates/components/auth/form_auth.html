@@ -1,22 +1,6 @@
 <form class="auth-form" method="post">
     {% csrf_token %}
     <h3>{{title}}</h3>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Имя</label>
-      <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">Введите имя пользователя</div>
-    </div>
-    
-    {% if title == 'Заригистрироваться в Аккаунт' %}
-        <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Почта</label>
-        <input name="email" type="email" class="form-control" id="exampleInputPassword1">
-      </div>
-    {% endif %}
-        
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Пароль</label>
-      <input name="password" type="password" class="form-control" id="exampleInputPassword1">
-    </div>
+    {{form}}
     <button type="submit" class="btn btn-primary">Отправить</button>
   </form>

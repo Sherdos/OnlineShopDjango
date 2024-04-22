@@ -1,5 +1,4 @@
-<form method="post" action="{% url 'search' %}" class="d-flex">
-  {% csrf_token %}
+<form method="get" action="{% url 'search' %}" class="d-flex">
     <input name="key" class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
     <button class="btn btn-outline-success" type="submit">Поиск</button>
   </form>
