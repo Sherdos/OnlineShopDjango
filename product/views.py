@@ -3,10 +3,11 @@ from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
-from product.forms import RegisterForm, ReviewForm, UserCreationForm
+from django.contrib.auth.views import LoginView
+from product.forms import LoginForm, RegisterForm, ReviewForm, UserCreationForm
 from product.models import Review,  Product
 from product.utils import search_product
+from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.views import generic
@@ -36,6 +37,11 @@ class AddReviewView(generic.CreateView):
     template_name = 'pages/show_product.html'
     form_class = ReviewForm
     
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        Review.objects.create(text=form.data['text'],assesment=form.data['assesment'], user_id=form.data['user'], product_id = form.data['product'])
+ 
+        return redirect('show_product', form.data['product'])
+    
     
 
 
@@ -56,41 +62,23 @@ class SearchProductView(generic.ListView):
         cards = search_product(self.request)
         return cards
     
-    
 
-
-def login_user(request):
-    template_name = 'pages/login.html'
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        login(request, user)
-        return redirect('index')
-    context = {
-        'title':"Войти в Аккаунт",  
-    }
-    return render(request, template_name ,context)
-
-class UserRegister(generic.CreateView):
+class UserRegisterView(generic.CreateView):
     template_name = 'pages/login.html'  
     form_class = RegisterForm
     
-
-def register_user(request):
-    template_name = 'pages/login.html'
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        user = User.objects.create_user(username, email, password)
-        login(request, user)
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        user = form.save()
+        login(self.request, user)
         return redirect('index')
-    context = {
-        'title':"Заригистрироваться в Аккаунт",  
-    }
-    return render(request, template_name ,context)
 
 def logout_user(request):
     logout(request)
     return redirect('index')
+
+class UserLoginView(LoginView):
+    form_class = LoginForm
+    template_name = 'pages/login.html'
+    
+    def get_success_url(self) -> str:
+        return reverse_lazy('index')

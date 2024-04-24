@@ -7,3 +7,8 @@ count_review = 10
 7.5 * 10
 75 + 6 = 81
 81 / 11 = 7.4
+
+
+<QueryDict: {'csrfmiddlewaretoken': ['7gJdMncinHFuiKTEybE8qxMd7kh5nPkwfSZjwJr15OQyMy0FyZrtvkaOETyOPU38'], 'text': ['sdaf'], 'assesment': ['2'], 'product': ['4'], 'user': ['1']}>
+
+<QueryDict: {'csrfmiddlewaretoken': ['GNc9Q1oID2ZtACNDa7E32e1CTM4qn1nlOpsfAnDrl9ax4qUEaVro71pdqll9P66X'], 'text': ['safg'], 'assesment': ['1'], 'user': ['1'], 'product': ['2']}>

@@ -99,6 +99,6 @@ class Review(models.Model):
 
     def __str__(self):
         """Unicode representation of Review."""
-        pass
+        return f'{self.user}'
 
 

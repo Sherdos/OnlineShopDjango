@@ -23,3 +23,8 @@ class SizeAdmin(admin.ModelAdmin):
     '''Admin View for Category'''
     list_display = ('title',)
     prepopulated_fields = {'slug':('title',)}
+
+@admin.register(models.Review)
+class ReviewAdmin(admin.ModelAdmin):
+    '''Admin View for Review'''
+    list_display = ('user',)
