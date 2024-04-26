@@ -15,10 +15,19 @@
       </div>
       <div class="description  p-2 bg-light border-bottom">
           <p>{{card.description}}</p></div>
-               <div class="categoria p-2 bg-light border-bottom">Категория: <span>{{card.categories.first}}</span></div>
+               <div class="categoria p-2 bg-light border-bottom">Категория: 
+               {% for cat in card.categories.all %}
+               <span>{{cat}} ,</span>
+               {% endfor %}
+            </div>
               
             {% include 'components/order/select_size.html' %}
-            {% include 'components/order/review_form.html' %}
+            
+            {% if request.user.is_authenticated %}
+                {% include 'components/order/review_form.html' %}
+                
+            {% endif %}
+                
 
       <div class="support p-2 bg-light border-bottom">КАК СДЕЛАТЬ ЗАКАЗ?
 

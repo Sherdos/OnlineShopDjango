@@ -8,49 +8,10 @@
         <p style="font-size: x-small; font-family: 'Courier New', Courier, monospace;">{{card.id}}</p>
       </div>
      {% include 'components/order/product_info.html' %}
-      <p class="between-card ">Похожие товары</p>
-      <div class="between ">
-        <div class="card fw-bold" style="width: 13rem;">
-          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
-          <div class="card-body ">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Куртка Gant</li>
-            <li class="list-group-item">23 990 сом</li>
-            <li class="list-group-item">7006271 433</li>
-          </ul>
-        
-        </div>
-        <div class="card fw-bold" style="width: 13rem;">
-          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
-          <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Куртка Gant</li>
-            <li class="list-group-item">23 990 сом</li>
-            <li class="list-group-item">7006271 433</li>
-          </ul>
-        
-        </div>
-        <div class="card fw-bold" style="width: 13rem;">
-          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
-          <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Куртка Gant</li>
-            <li class="list-group-item">23 990 сом</li>
-            <li class="list-group-item">7006271 433</li>
-          </ul>
-        
-        </div>
-        <div class="card fw-bold" style="width: 13rem;">
-          <a href="#"><img src="Tommy Hilfiger.jpg" style="width: 150px; height: 200px;" class="card-img-top rounded mx-auto d-block" alt="..."></a>
-          <div class="card-body">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Куртка Gant</li>
-            <li class="list-group-item">23 990 сом</li>
-            <li class="list-group-item">7006271 433</li>
-          </ul>
-        
-        </div>
-      </div>
+      <section class="content-section">
+        <p>Похожие товары</p>
+        {% include 'components/card/group_card.html' %}
+    </section>
 {% endblock content %}
       
 

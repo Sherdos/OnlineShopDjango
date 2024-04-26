@@ -1,6 +1,17 @@
 <form class="auth-form" method="post">
     {% csrf_token %}
     <h3>{{title}}</h3>
-    {{form}}
+    
+    {% for f in form %}
+    <div class="mb-3">
+      <label for="{{f.id_for_label}}" class="form-label">{{f.label}}</label>
+      {{f}}
+      <div id="emailHelp" class="form-text">{{f.help_text}}</div>
+    </div>
+      
+      {{f.help_text}}
+      
+    {% endfor %}
+      
     <button type="submit" class="btn btn-primary">Отправить</button>
   </form>
