@@ -86,7 +86,7 @@ class Review(models.Model):
     """Model definition for Review."""
     text = models.TextField(verbose_name='Отзыв')
     assesment = models.CharField(verbose_name='Оценка', max_length=50, choices=choices_review)
-    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='продукт')
+    product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='продукт',related_name='review_product')
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
     created = models.DateTimeField(verbose_name='дата', auto_now_add=True)
     # TODO: Define fields here

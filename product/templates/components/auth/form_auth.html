@@ -5,11 +5,11 @@
     {% for f in form %}
     <div class="mb-3">
       <label for="{{f.id_for_label}}" class="form-label">{{f.label}}</label>
+      <div class="error_message">{{f.errors}}</div>
       {{f}}
       <div id="emailHelp" class="form-text">{{f.help_text}}</div>
     </div>
       
-      {{f.help_text}}
       
     {% endfor %}
       

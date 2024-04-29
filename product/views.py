@@ -51,10 +51,13 @@ class AddReviewView(generic.CreateView):
     form_class = ReviewForm
     
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        Review.objects.create(text=form.data['text'],assesment=form.data['assesment'], user_id=form.data['user'], product_id = form.data['product'])
- 
-        return redirect('show_product', form.data['product'])
-    
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.user_id = form.data['user']
+            review.product_id = form.data['product']
+            review.save()
+            return redirect('show_product', form.data['product'])
+        return HttpResponse('Неправильный запрос', status=400)
     
 
 

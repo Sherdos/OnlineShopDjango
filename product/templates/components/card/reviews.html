@@ -1,0 +1,8 @@
+<div class="reviews">
+    
+    {% for review in card.review_product.all %}
+        
+        {% include 'components/card/review.html' %}
+    {% endfor %}
+        
+</div>
