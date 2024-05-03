@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load my_tag %}
 
 {% block content %}
 <div id="container">
@@ -82,7 +83,14 @@
     <section class="content-section">
         <h1>Brand-New Products</h1>
         <p>Elegance Heritage – Futuristic Smart Clothes</p>
-        {% include 'components/card/group_card.html' %}
+        <div class="card-container">
+            {% get_new_products as new_cards %}
+            {% for card in new_cards %}
+                    
+            {% include 'components/card/card.html' %}
+        
+            {% endfor %}
+        </div>
     </section>
 
 

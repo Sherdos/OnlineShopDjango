@@ -1,16 +1,10 @@
 {% load static %}
   <div class="card">
     <a href="{{ card.get_absolute_url }}"><img style="height: 300px; background-size: cover; background-position: center;" src="{{card.product_media.first.image.url}}" alt="" width="100%"></a>
-    <div class="desc">
-        <span>{{card.description}}</span>
+    <div class="desc" style="min-height: 100%;">
+        <span>{{card.description|truncatechars:150}}</span>
         <a style="text-decoration: none;" href="{{ card.get_absolute_url }}"><h5>{{card.title}}</h5></a>
-        <div class="star-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
+      
         <h4 >{{card.price}} сом</h4>
     </div>
     <div class="icon-container">

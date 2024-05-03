@@ -439,3 +439,9 @@ p {
 .error_message {
     color: red;
 }
+
+.pagination {
+    width: 100px;
+    margin: auto;
+
+}

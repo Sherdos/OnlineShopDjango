@@ -24,7 +24,7 @@ class IndexView(generic.ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        cards = Product.objects.all().order_by('-id')[:3]
+        cards = Product.objects.all()[:3]
         return cards
 
 class ShowProductView(generic.DetailView, generic.CreateView):
@@ -62,8 +62,10 @@ class AddReviewView(generic.CreateView):
 
 
 class ProductsView(generic.ListView):
+    paginate_by = 2
     template_name = 'pages/clothes.html'
     context_object_name = 'cards'
+    
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
