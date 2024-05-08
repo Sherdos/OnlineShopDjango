@@ -1,11 +1,12 @@
+{% load static %}
 <div class="star-rating">
     {% for star in stars  %}
-    2
+    <img class="star"  src="{% static 'product/star2.jpg' %}" alt="">
      
   
     {% endfor %}
     {% if float != 0 %}
-    1
+    <img  class="star" src="{% static 'product/holf_star.jpg' %}" alt="">
     {% endif %}
                 
 </div>

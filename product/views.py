@@ -3,13 +3,9 @@ from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from django.contrib.auth.views import LoginView
-from product.forms import LoginForm, RegisterForm, ReviewForm, UserCreationForm
+from product.forms import  ReviewForm
 from product.models import Review,  Product
 from product.utils import search_product
-from django.urls import reverse_lazy
-from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
 from django.views import generic
 
 # Create your views here.
@@ -90,32 +86,3 @@ class SearchProductView(generic.ListView):
         cards = search_product(self.request)
         return cards
     
-
-class UserRegisterView(generic.CreateView):
-    template_name = 'pages/login.html'  
-    form_class = RegisterForm
-    
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Регистрация'
-        return context
-    
-    def form_valid(self, form: BaseModelForm) -> HttpResponse:
-        user = form.save()
-        login(self.request, user)
-        return redirect('index')
-
-def logout_user(request):
-    logout(request)
-    return redirect('index')
-
-class UserLoginView(LoginView):
-    form_class = LoginForm
-    template_name = 'pages/login.html'
-    
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Войти'
-        return context
-    def get_success_url(self) -> str:
-        return reverse_lazy('index')

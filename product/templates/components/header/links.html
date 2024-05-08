@@ -8,6 +8,7 @@
     <li class="nav-item">
       <a class="nav-link" href="{% url 'products' %}">Одежда</a>
     </li>
+    
     {% if not  request.user.is_authenticated %}
     <li class="nav-item">
       <a class="nav-link" href="{% url 'login' %}">Войти</a>
@@ -16,12 +17,19 @@
       <a class="nav-link" href="{% url 'register' %}">Зарегистрироваться</a>
     </li>
     {% else %}
+    
+    {% if request.user.is_superuser or request.user.is_staff %}
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin:index' %}">Админ панель</a>
+    </li>
+    {% endif %}
+      
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         {{request.user.username}}
       </a>
       <ul class="dropdown-menu bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Профиль</a></li>
         <li><a class="dropdown-item" href="#">Another action</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
