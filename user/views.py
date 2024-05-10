@@ -42,6 +42,7 @@ class UserLoginView(LoginView):
     
 def profile(request):
     return render(request, 'page/profile.html')
+
 class Profile(generic.DetailView):
     template_name = 'profile.html'
     

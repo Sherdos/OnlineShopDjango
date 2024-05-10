@@ -1,6 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from django.contrib.auth.models import User
 # Create your models here.
 choices_review = (
  ('1','1'),
@@ -87,7 +86,7 @@ class Review(models.Model):
     text = models.TextField(verbose_name='Отзыв')
     assesment = models.CharField(verbose_name='Оценка', max_length=50, choices=choices_review)
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='продукт',related_name='review_product')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='пользователь')
+    user = models.ForeignKey('user.User', on_delete=models.CASCADE, verbose_name='пользователь')
     created = models.DateTimeField(verbose_name='дата', auto_now_add=True)
     # TODO: Define fields here
 
