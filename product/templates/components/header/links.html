@@ -29,8 +29,8 @@
         {{request.user.username}}
       </a>
       <ul class="dropdown-menu bg-dark dropdown-menu-dark" aria-labelledby="navbarDropdown">
-        <li><a class="dropdown-item" href="{{  request.user.get_absolute_url }}">Профиль</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="{{request.user.get_absolute_url }}">Профиль</a></li>
+        <li><a class="dropdown-item" href="{% url 'cart' request.user.id %}">Корзина</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="{% url 'logout' %}">Выйти</a></li>
       </ul>
