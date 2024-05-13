@@ -1,6 +1,7 @@
 from typing import Iterable
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 # Create your models here.
 
 class Profie(models.Model):
@@ -25,6 +26,10 @@ class User(AbstractUser):
     
     def save(self, *agr, **kwarg) -> None:
         user = super().save(*agr,**kwarg)
-        Profie.objects.create(user_id=self.pk)
+        Profie.objects.get_or_create(user_id=self.pk)
         return user
+    
+    def get_absolute_url(self):
+        return reverse('profile', kwargs={'pk': self.pk})
+    
     
