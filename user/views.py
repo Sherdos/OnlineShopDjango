@@ -7,7 +7,7 @@ from django.contrib.auth.views import LoginView
 from user.forms import LoginForm, RegisterForm
 from django.views import generic
 from django.contrib.auth import login, logout
-from user.models import Profie, User, Cart
+from user.models import Profie, User, Cart, CartProduct
 # Create your views here.
 
 class UserRegisterView(generic.CreateView):
@@ -53,7 +53,13 @@ class CartDetailView(generic.DetailView):
         title = f'Корзина {context["user"].username}'
         context['cart'] = Cart.objects.get_or_create(user_id=context["user"].id)[0]
         context['title'] = title
+        context['cart_products_count'] = CartProduct.objects.filter(cart_id=context['cart'].id).count()
         return context
+    
+    def post(self, *arg, **kwargs: Any):
+        product_id = arg[0].POST.get('product')
+        CartProduct.objects.get(id=product_id).delete()
+        return redirect('cart', self.get_object().id )
 
 class Profile(generic.DetailView):
     template_name = 'page/profile.html'
