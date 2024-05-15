@@ -51,7 +51,7 @@ class CartDetailView(generic.DetailView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
         title = f'Корзина {context["user"].username}'
-        context['cart'] = Cart.objects.get_or_create(user_id=context["user"].id)
+        context['cart'] = Cart.objects.get_or_create(user_id=context["user"].id)[0]
         context['title'] = title
         return context
 
