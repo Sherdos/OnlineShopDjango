@@ -27,7 +27,16 @@ class IndexView(generic.ListView):
 
 class AddCartView(generic.CreateView):
     model = CartProduct
-    form_class = CartProductForm()
+    form_class = CartProductForm
+    
+    def form_valid(self, form: BaseModelForm) -> HttpResponse:
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.card_id = form.data['card_id']
+            order.cart_id = form.data['cart_id']
+            order.save()
+            return redirect('show_product', form.data['card_id'])
+        HttpResponse('Неправильный запрос', status=400)
 
 class ShowProductView(generic.DetailView, generic.CreateView):
     model = Product

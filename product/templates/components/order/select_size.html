@@ -1,5 +1,9 @@
-<form method="post" class="option p-2 bg-light border-bottom"> <p>КОРЗИНА:</p>
+<form method="post" action="{% url 'add_cart' %}" class="option p-2 bg-light border-bottom"> <p>КОРЗИНА:</p>
+    {% csrf_token %}
     {{form_cart}}
+    <input type="hidden" name="card_id" value="{{card.id}}">
+    <input type="hidden" name="cart_id" value="{{request.user.cart_user.first.id}}">
   <button type="submit" class=" my-btn btn btn-outline-success">КОРЗИНУ</button>
   <button type="button" class=" my-btn btn btn-outline-primary">Купить</button>
+
 </form>
