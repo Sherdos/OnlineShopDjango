@@ -1,6 +1,6 @@
 <form method="post" action="{% url 'add_review' %}" class="option p-2 bg-light border-bottom"> <p>Оценка</p>
     {% csrf_token %}
-    {{form_review}}
+    {{form}}
     <input value="{{request.user.id}}" type="hidden" name="user">
     <input value="{{card.id}}" type="hidden" name="product">
   <button type="submit" class=" my-btn btn btn-outline-success">отправить</button>

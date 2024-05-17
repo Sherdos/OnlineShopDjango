@@ -49,6 +49,7 @@ class Cart(models.Model):
 class CartProduct(models.Model):
     card = models.ForeignKey('product.Product', on_delete=models.CASCADE, verbose_name='Карта', related_name='cart_product')
     count = models.PositiveIntegerField(verbose_name='количество')
+    size = models.ForeignKey('product.Size', on_delete=models.CASCADE, related_name='size_cart_product', verbose_name='размер')
     cart = models.ForeignKey('user.Cart', on_delete=models.CASCADE, verbose_name='Корзина', related_name='cart_card')
 
     

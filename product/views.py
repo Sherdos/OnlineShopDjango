@@ -3,10 +3,12 @@ from django.db.models.query import QuerySet
 from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-from product.forms import  ReviewForm
+from product.forms import  CartProductForm, ReviewForm
 from product.models import Review,  Product
 from product.utils import search_product
 from django.views import generic
+
+from user.models import CartProduct
 
 # Create your views here.
 
@@ -23,6 +25,10 @@ class IndexView(generic.ListView):
         cards = Product.objects.all()[:3]
         return cards
 
+class AddCartView(generic.CreateView):
+    model = CartProduct
+    form_class = CartProductForm()
+
 class ShowProductView(generic.DetailView, generic.CreateView):
     model = Product
     template_name = 'pages/show_product.html'
@@ -31,7 +37,7 @@ class ShowProductView(generic.DetailView, generic.CreateView):
     
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context['form_review'] = ReviewForm()
+        context['form_cart'] = CartProductForm()
         title = context['card'].title
         context['title'] = f'{title}'
         context['cards'] = self.get_same_card(context['card'].categories.first())
