@@ -5,7 +5,7 @@
     <div class="desc" style="min-height: 100%;">
         <span>{{card.description|truncatechars:150}}</span>
         <a style="text-decoration: none;" href="{{ card.get_absolute_url }}"><h5>{{card.title}}</h5></a>
-        {% get_rate_stars card.review_product.all|avg_review %}
+        {% get_rate_stars card.rating %}
         <h4 >{{card.price}} сом</h4>
     </div>
     <div class="icon-container">

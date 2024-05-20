@@ -54,7 +54,15 @@ class CartDetailView(generic.DetailView):
         context['cart'] = Cart.objects.get_or_create(user_id=context["user"].id)[0]
         context['title'] = title
         context['cart_products_count'] = CartProduct.objects.filter(cart_id=context['cart'].id).count()
+        context['sum'] = self.get_all_price(context['cart'])
         return context
+    
+    def get_all_price(self, cart):
+        products = cart.cart_card.all()
+        all_price = 0
+        for product in products:
+            all_price += product.count * product.card.price
+        return all_price
     
     def post(self, *arg, **kwargs: Any):
         product_id = arg[0].POST.get('product')

@@ -22,7 +22,7 @@ class IndexView(generic.ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        cards = Product.objects.all()[:3]
+        cards = Product.objects.all().order_by('-rating')[:3]
         return cards
 
 class AddCartView(generic.CreateView):
@@ -63,11 +63,16 @@ class AddReviewView(generic.CreateView):
     
     def form_valid(self, form: BaseModelForm) -> HttpResponse:
         if form.is_valid():
+            prduct = Product.objects.get(id=form.data['product'])
+            new_rating = (prduct.rating * len(prduct.review_product.all())) + int(form.cleaned_data['assesment'])
             review = form.save(commit=False)
             review.user_id = form.data['user']
-            review.product_id = form.data['product']
+            review.product = prduct
             review.save()
+            prduct.rating = new_rating / len(prduct.review_product.all())
+            prduct.save()
             return redirect('show_product', form.data['product'])
+        
         return HttpResponse('Неправильный запрос', status=400)
     
 

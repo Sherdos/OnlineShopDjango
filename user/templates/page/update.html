@@ -1,0 +1,31 @@
+{% extends 'base_user.html' %}
+{% load static %}
+
+
+  
+{% block content %}
+
+    <div class="center">
+      
+      <form method="post" action="{% url 'update' user.id %}">{% csrf_token %}
+        <div class="inputbox">
+          <p> <label for="phonenomer" class="form-label">Телефон номер</label></p>
+        <input type="text" name="phone12" id="phonenomer" class="inputbox">
+      <p>  <label for="text1" class="inputbox">описания</label></p>
+        <textarea name="text12" id="text1" class="inputbox">{{user.text}}</textarea>
+       <p> <label for="formFile" class="inputbox"
+        >Выберите фото</label
+      ></p>
+              <input
+                class="form-control"
+                name="image"
+                type="file"
+                id="formFile"
+              />
+        <input type="submit" value="Update" class="btn btn-warning">
+          
+        </div>
+        
+    </div>
+      
+    {% endblock content %}
