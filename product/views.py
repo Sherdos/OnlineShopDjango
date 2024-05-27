@@ -22,7 +22,8 @@ class IndexView(generic.ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        cards = Product.objects.all().order_by('-rating')[:3]
+        cards = Product.objects.all().prefetch_related('product_media')
+        print(cards[1].product_media.all())
         return cards
 
 class AddCartView(generic.CreateView):
