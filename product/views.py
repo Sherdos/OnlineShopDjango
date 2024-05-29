@@ -4,10 +4,11 @@ from django.forms import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from product.forms import  CartProductForm, ReviewForm
-from product.models import Review,  Product
+from product.models import Review,  Product, ProductMedia
 from product.utils import search_product
 from django.views import generic
-
+from django.db.models import OuterRef, Subquery
+from django.core.cache import cache
 from user.models import CartProduct
 
 # Create your views here.
@@ -22,8 +23,11 @@ class IndexView(generic.ListView):
         return context
     
     def get_queryset(self) -> QuerySet[Any]:
-        cards = Product.objects.all().prefetch_related('product_media')
-        print(cards[1].product_media.all())
+        first_media_subquery = ProductMedia.objects.filter(product=OuterRef('pk')).order_by('id').values('image')[:1]
+        cards = cache.get('cards')
+        if not cards:
+            cards = Product.objects.all().order_by('-id')[:3].annotate(image=Subquery(first_media_subquery))
+            cache.set('cards', cards, 10)
         return cards
 
 class AddCartView(generic.CreateView):

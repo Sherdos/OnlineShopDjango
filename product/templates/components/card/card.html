@@ -1,7 +1,7 @@
 {% load static %}
 {% load my_tag %}
   <div class="card">
-    <a href="{{ card.get_absolute_url }}"><img style="height: 300px; background-size: cover; background-position: center;" src="{{card.product_media.first.image.url}}" alt="" width="100%"></a>
+    <a href="{{ card.get_absolute_url }}"><img style="height: 300px; background-size: cover; background-position: center;" src="media/{{card.image}}" alt="" width="100%"></a>
     <div class="desc" style="min-height: 100%;">
         <span>{{card.description|truncatechars:150}}</span>
         <a style="text-decoration: none;" href="{{ card.get_absolute_url }}"><h5>{{card.title}}</h5></a>
